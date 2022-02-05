@@ -1,0 +1,450 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+	--color: #a200ff;
+	--color-hover: #8600d3;
+	--background: #2c2c2c;
+	--darker-background: #1f1f1f;
+	--font_color: #fff;
+	--glass-background: rgba(255, 255, 255, 0.1);
+	--background_blur: blur(10px);
+	--navbar_gap: 3rem;
+	--section2_font-size: 43px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Monserat", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--font_color);
+}
+a {
+	text-decoration: none;
+} /* 
+html {
+	overflow-x: hidden;
+} */
+html {
+	overflow-x: hidden;
+}
+body {
+	overflow-x: hidden;
+}
+/* 
+hide items and make them unnecessary for the page
+*/
+.hidden-nowrap {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	z-index: -100000;
+	position: relative;
+}
+body {
+	background: var(--background);
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
+}
+/* LOADER */
+#loadingpage {
+	background-color: var(--background);
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 100000;
+	transition: transform 0.75s, box-shadow 0.001s ease-in-out 0.75s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: rgba(0, 0, 0, 0) 5px 5px 5px 5px;
+}
+/* #loadingpage.mobile {
+	height: 0;
+	width: 0;
+	opacity: 0;
+	z-index: -1000;
+} */
+.loadingpage_removed {
+	position: absolute;
+	transform: translateX(100%);
+	box-shadow: rgba(0, 0, 0, 0);
+}
+.loader {
+	height: 20px;
+	width: 50vw;
+	border-radius: 10px;
+	background: var(--darker-background);
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.loader_fill {
+	margin-left: 4px;
+	height: 12px;
+	width: 0;
+	border-radius: 10px;
+	background-color: var(--color-hover);
+	transition: width 1s ease-in;
+}
+.filled {
+	width: calc(50vw - 8px);
+}
+/* 
+NAVBAR
+#GLASSY NAV FROM LEFT OR RIGHT
+*/
+header {
+	height: 90px;
+	width: 50%;
+	position: fixed;
+	right: 0;
+	margin-top: 2.5vh;
+	display: flex;
+	align-items: center;
+	background: rgb(255, 255, 255, 0.1);
+	box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(25px);
+	-webkit-backdrop-filter: blur(25px);
+	border-radius: 10px 0 0 10px;
+	overflow: hidden;
+	z-index: 1000;
+}
+header ul {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+header ul li a,
+header ul li p {
+	color: #fff;
+	font-family: "Monserat", sans-serif;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+/* hover to underline the header */
+.header_nav_link_hover::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background-color: #fff;
+	transition: width 0.25s ease-in-out;
+}
+.header_nav_link_hover:hover::before {
+	width: 100%;
+	background-color: var(--color);
+}
+/* hover to make links purple */
+.header_nav_link_hover p {
+	/* transition of the color for hover */
+	transition: color 0.25s;
+}
+.header_nav_link_hover:hover p {
+	color: var(--color);
+}
+/* 
+SECTION 1
+#BIG ANIMATION OF "PRIZZLEDEV"#
+SVG
+*/
+section.section1_animationsvg {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 0;
+}
+.section1_animationsvg_div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.section1_animationsvg h1 {
+	display: flex;
+}
+#section1_animationsvg_svg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0 5vw 0 5vw;
+}
+/* animation of the outline(stroke) of the svg */
+#section1_animationsvg_svg path:nth-child(2) {
+	stroke-dasharray: 432.2776794433594;
+	stroke-dashoffset: 432.2776794433594;
+}
+#section1_animationsvg_svg path:nth-child(3) {
+	stroke-dasharray: 260.1669616699219;
+	stroke-dashoffset: 260.1669616699219;
+}
+#section1_animationsvg_svg path:nth-child(4) {
+	stroke-dasharray: 276.40283203125;
+	stroke-dashoffset: 276.40283203125;
+}
+#section1_animationsvg_svg path:nth-child(5) {
+	stroke-dasharray: 369.3895568847656;
+	stroke-dashoffset: 369.3895568847656;
+}
+#section1_animationsvg_svg path:nth-child(6) {
+	stroke-dasharray: 369.3895263671875;
+	stroke-dashoffset: 369.3895263671875;
+}
+#section1_animationsvg_svg path:nth-child(7) {
+	stroke-dasharray: 253.4399871826172;
+	stroke-dashoffset: 253.4399871826172;
+}
+#section1_animationsvg_svg path:nth-child(8) {
+	stroke-dasharray: 472.828369140625;
+	stroke-dashoffset: 472.828369140625;
+}
+#section1_animationsvg_svg path:nth-child(9) {
+	stroke-dasharray: 536.9835205078125;
+	stroke-dashoffset: 536.9835205078125;
+}
+#section1_animationsvg_svg path:nth-child(10) {
+	stroke-dasharray: 472.8287048339844;
+	stroke-dashoffset: 472.8287048339844;
+}
+#section1_animationsvg_svg path:nth-child(11) {
+	stroke-dasharray: 366.4812316894531;
+	stroke-dashoffset: 366.4812316894531;
+}
+
+#section1_animationsvg_svg path:nth-child(2),
+#section1_animationsvg_svg path:nth-child(3),
+#section1_animationsvg_svg path:nth-child(4),
+#section1_animationsvg_svg path:nth-child(5),
+#section1_animationsvg_svg path:nth-child(6),
+#section1_animationsvg_svg path:nth-child(7),
+#section1_animationsvg_svg path:nth-child(8),
+#section1_animationsvg_svg path:nth-child(9),
+#section1_animationsvg_svg path:nth-child(10),
+#section1_animationsvg_svg path:nth-child(11) {
+	animation: section1_animationsvg_animation 2s ease forwards 1.5s,
+		section1_animationsvg_fill 0.3s ease forwards 3.4s;
+}
+
+/* 
+SECTION 2
+*/
+
+section.section2 {
+	min-height: max-content;
+	display: flex;
+	justify-content: start;
+	align-items: flex-start;
+	margin-bottom: 25vh;
+}
+
+.section2_div {
+	width: max-content;
+	opacity: 0;
+	transition: opacity 0.5s;
+	overflow: hidden;
+	margin-left: 10%;
+}
+/* when this class is added sec2 it will fade in, remove the class it will fade out */
+.section2 h1 {
+	color: #fff;
+}
+.highlight_line {
+	width: max-content;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	margin: calc(var(--section2_font-size) / 2) 0;
+	font-family: "Montserrat", sans-serif;
+	opacity: 0;
+	transition: transform 0, opacity 0;
+	cursor: pointer;
+}
+
+/* move the lines -200% down at load */
+.highlight_line:nth-child(1) {
+	margin-top: 0;
+	transform: translateY(200%);
+}
+.highlight_line:nth-child(2) {
+	transform: translateY(200%);
+}
+.highlight_line:nth-child(3) {
+	transform: translateY(200%);
+}
+.highlight_line:nth-child(4) {
+	margin-bottom: 0;
+	transform: translateY(200%);
+}
+
+/* add this class and it will do the slide up animation */
+.highlight_line.slide-up-and-appear {
+	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+	opacity: 1;
+	transform: translateY(0%);
+}
+/* transitions (color if hoverd single items) */
+.highlight_line:nth-child(1).slide-up-and-appear {
+	transition: transform 0.5s ease-in, opacity 0.5s ease-in,
+		color 0.25s 0s ease-in-out;
+}
+.highlight_line:nth-child(2).slide-up-and-appear {
+	transition: transform 0.5s 1s ease-in, opacity 0.5s 1s ease-in,
+		color 0.25s 0s ease-in-out;
+}
+.highlight_line:nth-child(3).slide-up-and-appear {
+	transition: transform 0.5s 2s ease-in, opacity 0.5s 2s ease-in,
+		color 0.25s 0s ease-in-out;
+}
+.highlight_line:nth-child(4).slide-up-and-appear {
+	transition: transform 0.5s 3s ease-in, opacity 0.5s 3s ease-in,
+		color 0.25s 0s ease-in-out;
+}
+
+/* hover lines */
+.section2_div h2:hover {
+	color: var(--color);
+}
+.section2_div h2::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--font-color);
+	transition: width 0.25s ease-in-out;
+}
+.section2_div h2:hover::before {
+	width: 100%;
+	background-color: var(--color);
+}
+
+/* 
+SECTION 4
+*/
+.section4 {
+	height: 40vh;
+	display: flex;
+	justify-content: center;
+}
+.section4 #copy_discord {
+	color: #fff;
+	background: var(--color);
+	width: 15rem;
+	height: 5rem;
+	/* padding: 2rem 3rem; */
+	border-radius: 10px;
+	font-family: "Montserrat", sans-serif;
+	cursor: pointer;
+	font-weight: 700;
+	transition: background 0.25s, opacity 0.5s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+}
+.section4 #copy_discord:hover {
+	background: var(--color-hover);
+}
+.section4 #copy_discord.copy_mobile:hover {
+	background: var(--color);
+}
+.mobile_hovered {
+	background: var(--color-hover) !important;
+}
+/* 
+FOOTER
+*/
+footer {
+	height: 40vh;
+	background: var(--darker-background);
+	border-top: 2px solid var(--color);
+}
+/* 
+ANIMATIONS OF SECTION 1 SVG
+*/
+@keyframes section1_animationsvg_animation {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes section1_animationsvg_fill {
+	from {
+		fill: transparent;
+	}
+	to {
+		fill: #fff;
+	}
+}
+/* 
+Max Screensize
+*/
+@media (max-width: 757px) {
+	header {
+		width: 90%;
+	}
+}
+@media (max-width: 688px) {
+	.highlight_line {
+		font-size: 33px;
+	}
+}
+@media (max-width: 532px) {
+	.highlight_line {
+		font-size: 23px;
+	}
+}
+@media (max-width: 430px) {
+	.highlight_line {
+		font-size: 28px;
+	}
+}
+@media (max-width: 400px) {
+	.highlight_line {
+		font-size: 22px;
+	}
+}
+
+.fade-out {
+	opacity: 1 !important;
+}
+
+/* 
+DEBUG
+*/
+body {
+	min-height: 100%;
+}
+
+/* .section1_animationsvg{
+	background: #690000;
+} */
+
+.white {
+	color: #fff;
+}
+.purple {
+	color: var(--color);
+}
+.section3 p {
+	font-size: 43px;
+	font-family: Roboto Mono, monospace;
+}
+.section3_div {
+	display: flex;
+}
